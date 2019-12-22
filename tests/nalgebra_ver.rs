@@ -21,12 +21,12 @@ impl SampleProblem {
 impl Problem for SampleProblem {
     type T = f32;
 
-    fn parameters(&self) -> &na::DVector<Self::T> {
+    fn params(&self) -> &na::DVector<Self::T> {
         &self.x
     }
 
-    fn update_parameters(&mut self, update_value: &na::DVector<Self::T>) {
-        self.x += update_value;
+    fn update_params(&mut self, delta_params: &na::DVector<Self::T>) {
+        self.x += delta_params;
     }
 
     fn error_vector(&self) -> na::DVector<Self::T> {

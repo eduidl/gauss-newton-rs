@@ -1,5 +1,5 @@
-pub mod optimize;
 pub mod problem;
+pub mod solver;
 
-pub use self::optimize::GaussNewton;
 pub use self::problem::Problem;
+pub use self::solver::GaussNewton;

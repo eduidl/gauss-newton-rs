@@ -7,8 +7,8 @@ where
 {
     type T: Scalar;
 
-    fn parameters(&self) -> &Array1<Self::T>;
-    fn update_parameters(&mut self, update_value: &Array1<Self::T>);
+    fn params(&self) -> &Array1<Self::T>;
+    fn update_params(&mut self, delta_param: &Array1<Self::T>);
     fn error_vector(&self) -> Array1<Self::T>;
     fn squared_error(&self) -> Self::T {
         self.error_vector().norm_l2()

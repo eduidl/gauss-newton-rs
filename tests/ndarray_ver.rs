@@ -20,12 +20,12 @@ impl SampleProblem {
 impl Problem for SampleProblem {
     type T = f32;
 
-    fn parameters(&self) -> &Array1<Self::T> {
+    fn params(&self) -> &Array1<Self::T> {
         &self.x
     }
 
-    fn update_parameters(&mut self, update_value: &Array1<Self::T>) {
-        self.x += update_value;
+    fn update_params(&mut self, delta_params: &Array1<Self::T>) {
+        self.x += delta_params;
     }
 
     fn error_vector(&self) -> Array1<Self::T> {
