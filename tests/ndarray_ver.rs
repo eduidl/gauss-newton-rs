@@ -36,8 +36,7 @@ impl Problem for SampleProblem {
     fn jacobian(&self) -> Array2<Self::T> {
         let c1 = -&self.s / (&self.s + self.x[1]);
         let c2 = &self.s * self.x[0] / (&self.s + self.x[1]).mapv(|a| a.powi(2));
-        let jacobian = stack![Axis(1), c1.insert_axis(Axis(1)), c2.insert_axis(Axis(1))];
-        jacobian
+        stack![Axis(1), c1, c2]
     }
 }
 
@@ -57,5 +56,5 @@ fn test_gauss_newton_ndarray() {
     assert!(gauss_newton
         .problem
         .x
-        .all_close(&arr1(&[0.362, 0.556]), 1e-3));
+        .abs_diff_eq(&arr1(&[0.362, 0.556]), 1e-3));
 }

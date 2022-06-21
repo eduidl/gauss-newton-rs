@@ -36,7 +36,7 @@ where
         self.problem.update_params(&a);
 
         let squared_error = self.problem.squared_error();
-        let delta_squared_error = (squared_error - prev_squared_error).abs();
+        let delta_squared_error = (squared_error.clone() - prev_squared_error).abs();
         if delta_squared_error / squared_error < self.eps {
             self.converged = true;
             return;

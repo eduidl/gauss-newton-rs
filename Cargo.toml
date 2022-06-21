@@ -7,11 +7,11 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-nalgebra = "0.19"
-ndarray = "0.12"
-ndarray-linalg = "0.11"
+nalgebra = "0.31"
+ndarray = "0.15"
+ndarray-linalg = "0.14"
 num-traits = "0.2"
 
 [dev-dependencies]
-approx = "0.3"
-ndarray-linalg = { version = "0.11", features = ["openblas"] }
+approx = "0.5"
+ndarray-linalg = { version = "0.14", features = ["openblas"] }

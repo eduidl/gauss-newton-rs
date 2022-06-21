@@ -36,8 +36,7 @@ impl Problem for SampleProblem {
     fn jacobian(&self) -> na::DMatrix<Self::T> {
         let c1 = self.s.map(|ss| -ss / (self.x[1] + ss));
         let c2 = self.s.map(|ss| self.x[0] * ss / (self.x[1] + ss).powi(2));
-        let jacobian = na::DMatrix::<Self::T>::from_columns(&[c1, c2]);
-        jacobian
+        na::DMatrix::<Self::T>::from_columns(&[c1, c2])
     }
 }
 
